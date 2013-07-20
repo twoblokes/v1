@@ -1,0 +1,1 @@
+guard :sass, :input => 'sass', :output => 'wp-content/themes/twoblokes_v1'
