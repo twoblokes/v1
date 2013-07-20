@@ -65,7 +65,7 @@
 
 	<!-- concatenate and minify for production -->
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reset.css" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/application.css" />
 	
 	<!-- This is an un-minified, complete version of Modernizr. 
 		 Before you move to production, you should generate a custom build that only has the detects you need. -->
