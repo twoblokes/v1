@@ -1,6 +1,6 @@
 .sass-cache
 sass
-wp-config-production.php
+wp-config-local.php
 
 # OS generated files #
 ######################
