@@ -1,47 +1,44 @@
 <?php
-
-if ( file_exists( dirname( __FILE__ ) . '/wp-config-production.php' ) ) {
-    require( 'wp-config-production.php' );
-}else {
-
-define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
-define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME']);
-
-define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
-
-define('WP_DEFAULT_THEME', 'twoblokes_v1');
-
-define('DB_NAME', '000_two_blokes');
-
-define('DB_USER', 'root');
-
-define('DB_PASSWORD', 'sansome');
-
-define('DB_HOST', 'localhost');
-
-define('DB_CHARSET', 'utf8');
-
-define('DB_COLLATE', '');
-
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
-
-$table_prefix  = 'wp_';
-
-define('WPLANG', '');
-
-define('WP_DEBUG', false);
-
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
-
-require_once(ABSPATH . 'wp-settings.php');
-
+ 
+// Use these settings on the local server
+if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
+  include( dirname( __FILE__ ) . '/wp-config-local.php' );
+  
+// Otherwise use the below settings (on live server)
+} else {
+ 
+  // Live Server Database Settings
+  define( 'DB_NAME',     'oreardon_000_two_blokes');
+  define( 'DB_USER',     'oreardon_2b');
+  define( 'DB_PASSWORD', 'Leicesterfc44@' );
+  define( 'DB_HOST',     'localhost'  );
+  
+  // Overwrites the database to save keep edeting the DB
+  define('WP_HOME','http://twoblok.es/test-git/v1');
+  define('WP_SITEURL','http://twoblok.es/test-git/v1');
+  
+  // Turn Debug off on live server
+  define('WP_DEBUG', false);
 }
+ 
+// Never use wp_ always use your own to prevent some hacks
+$table_prefix  = 'twoblokes_';
+ 
+// Usual Wordpress stuff - Dont overide the ones you have already
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
+define('AUTH_KEY',         'wordpress generated code');
+define('SECURE_AUTH_KEY',  'wordpress generated code');
+define('LOGGED_IN_KEY',    'wordpress generated code');
+define('NONCE_KEY',        'wordpress generated code');
+define('AUTH_SALT',        'wordpress generated code');
+define('SECURE_AUTH_SALT', 'wordpress generated code');
+define('LOGGED_IN_SALT',   'wordpress generated code');
+define('NONCE_SALT',       'wordpress generated code');
+ 
+define('WPLANG', '');
+ 
+if ( !defined('ABSPATH') )
+  define('ABSPATH', dirname(__FILE__) . '/');
+        
+require_once(ABSPATH . 'wp-settings.php');
