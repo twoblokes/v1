@@ -25,6 +25,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+html, body {
+  min-width: 1024px; }
+
 body {
   background: black;
   color: white; }
+
+a {
+  color: white;
+  border-bottom: 1px solid white; }
