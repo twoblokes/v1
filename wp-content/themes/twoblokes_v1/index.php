@@ -6,13 +6,29 @@
   </section>
 
   <section class="second">
+    <ul class="project-list">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <article>
-        <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-        <?php the_content(); ?>
-        <hr>
-      </article>
+      <a href="<?php the_permalink() ?>">
+        <li class="project">
+          <h2 class="title">
+            <?php the_title(); ?>
+          </h2>
+          <?php $screenshot = get_post_meta($post->ID, screenshot, true); if ($screenshot) { ?>
+            <?php $attachment_id = get_field('screenshot'); $size = "medium"; $image = wp_get_attachment_image_src( $attachment_id, $size ); ?>
+            <div class="screenshot">
+              <img src="<?php echo $image[0]; ?>">
+            </div>
+            <?php } ?>
+        </li>
+      </a>
     <?php endwhile; endif; ?>
+    </ul>
   </section>
 
 <?php get_footer(); ?>
+
+
+<?php $trailer = get_post_meta($post->ID, trailer, true); if ($trailer) { ?>
+<li class="trailer"><a class="clickable"><i class="icon-film"></i> Watch the trailer</a></li>
+<?php } else { ?>
+<?php } ?>

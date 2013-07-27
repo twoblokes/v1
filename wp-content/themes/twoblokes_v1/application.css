@@ -29,7 +29,7 @@ table {
 /* SVG Bkgrnd */
 body {
   background: black;
-  font: 300 24px/1.5em 'Merriweather', serif; }
+  font: 300 34px/1.5em 'Merriweather', serif; }
 
 a {
   color: white;
@@ -81,7 +81,7 @@ a {
     background-position: center center; }
 
 .second {
-  background: rgba(34, 34, 34, 0.5);
+  background: black;
   position: absolute;
   top: 100%;
   left: 0;
@@ -94,3 +94,38 @@ a {
     height: 20px;
     top: -20px;
     left: 0; }
+  .second .project-list .project {
+    position: relative;
+    width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    margin: 100px 0;
+    border-bottom: 1px solid white; }
+    .second .project-list .project:after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 50px;
+      width: 500px;
+      height: 100%;
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0.65)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); }
+    .second .project-list .project .title {
+      float: left;
+      width: 50%;
+      text-align: left;
+      padding: 50px 0 0 50px;
+      margin-right: -50px;
+      z-index: 100; }
+    .second .project-list .project .screenshot {
+      float: left;
+      width: 50%;
+      text-align: right;
+      padding-right: 50px;
+      margin-left: -50px; }
