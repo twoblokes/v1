@@ -79,3 +79,7 @@
 			<h1 class="logo">Two Blokes. Website Design. Leicester.</h1>
 		</header>
 
+		<header id="secondary-header">
+			<h1 class="logo">Two Blokes. Website Design. Leicester.</h1>
+			<a class="close-all-work">Close all work</a>
+		</header>

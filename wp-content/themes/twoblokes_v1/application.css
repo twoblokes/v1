@@ -27,15 +27,18 @@ table {
 
 /* Hide Text */
 /* SVG Bkgrnd */
+/* Transitions */
 body {
   background: black;
-  font: 300 34px/1.5em 'Merriweather', serif; }
+  font: 300 34px/1.5em 'Merriweather', serif;
+  color: white; }
 
 a {
   color: white;
   text-decoration: none; }
   a:hover {
-    color: red; }
+    color: white;
+    text-decoration: none; }
 
 #main-header .logo {
   margin: 50px auto;
@@ -50,6 +53,45 @@ a {
   background-size: 150px 150px;
   background-position: center center; }
 
+#secondary-header {
+  position: fixed;
+  top: -75px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000; }
+  #secondary-header .logo {
+    margin: 0 auto;
+    padding: 15px 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+    background-image: url("_/img/logo-black.png");
+    background-image: none, url("_/img/logo-black.svg");
+    background-size: 40px 40px;
+    background-position: center center;
+    background-repeat: no-repeat; }
+  #secondary-header .close-all-work {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 50px;
+    width: 40px;
+    height: 70px;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+    background-image: url("_/img/close-all-work5.png");
+    background-image: none, url("_/img/close-all-work5.svg");
+    background-size: 40px 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer; }
+
 .first {
   position: absolute;
   top: 0;
@@ -59,7 +101,7 @@ a {
   color: white; }
   .first .byline {
     position: absolute;
-    top: 50%;
+    top: 48%;
     left: 50%;
     width: 500px;
     margin: -20px 0 0 -250px;
@@ -78,7 +120,11 @@ a {
     background-image: url("_/img/down-arrow.png");
     background-image: none, url("_/img/down-arrow.svg");
     background-size: 40px 40px;
-    background-position: center center; }
+    background-position: center center;
+    cursor: pointer; }
+    .first .next-section:hover {
+      background-image: url("_/img/down-arrow-hovered.png");
+      background-image: none, url("_/img/down-arrow-hovered.svg"); }
 
 .second {
   background: black;
@@ -86,46 +132,159 @@ a {
   top: 100%;
   left: 0;
   width: 100%; }
-  .second:before {
-    content: ' ';
-    display: block;
-    position: absolute;
+  .second .second-intro {
+    color: white;
+    padding: 270px 0 200px 0;
     width: 100%;
-    height: 20px;
-    top: -20px;
-    left: 0; }
+    margin: 0 auto;
+    text-align: center;
+    font-size: 34px; }
   .second .project-list .project {
     position: relative;
     width: 100%;
-    max-height: 150px;
+    height: 150px;
     overflow: hidden;
-    margin: 100px 0;
-    border-bottom: 1px solid white; }
-    .second .project-list .project:after {
-      content: ' ';
+    margin: 0;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    -webkit-transition-delay: 350ms;
+    -moz-transition-delay: 350ms;
+    -o-transition-delay: 350ms;
+    -ms-transition-delay: 350ms;
+    transition-delay: 350ms;
+    -webkit-transition-duration: 400ms;
+    -moz-transition-duration: 400ms;
+    -o-transition-duration: 400ms;
+    -ms-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -ms-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: easing;
+    -moz-transition-timing-function: easing;
+    -o-transition-timing-function: easing;
+    -ms-transition-timing-function: easing;
+    transition-timing-function: easing;
+    z-index: 1; }
+    .second .project-list .project .blurred {
       display: block;
       position: absolute;
       top: 0;
-      right: 50px;
-      width: 500px;
+      right: 0;
+      width: 100%;
       height: 100%;
-      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0.65)));
-      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
-      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
-      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 50%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); }
+      z-index: -2; }
+    .second .project-list .project .gradient {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 200;
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, black 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, black));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, black 100%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, black 100%);
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, black 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); }
+    .second .project-list .project:hover {
+      height: 250px; }
+      .second .project-list .project:hover > .hover {
+        top: 40px; }
+    .second .project-list .project .overlay {
+      display: none;
+      overflow: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1; }
     .second .project-list .project .title {
-      float: left;
+      position: relative;
       width: 50%;
+      text-align: left;
+      padding: 55px 0 0 50px;
+      margin-right: -50px;
+      z-index: 201; }
+    .second .project-list .project .description {
+      width: 400px;
       text-align: left;
       padding: 50px 0 0 50px;
       margin-right: -50px;
-      z-index: 100; }
+      z-index: 2000 !important; }
+      .second .project-list .project .description p {
+        font-size: 18px;
+        line-height: 1.5em; }
+      .second .project-list .project .description .visit-site {
+        position: relative;
+        border-bottom: 3px solid white;
+        margin: 50px 0 0 0;
+        font-size: 18px;
+        line-height: 5em;
+        z-index: 4000 !important; }
     .second .project-list .project .screenshot {
-      float: left;
+      position: absolute;
+      top: 150px;
+      right: 50px;
       width: 50%;
       text-align: right;
-      padding-right: 50px;
-      margin-left: -50px; }
+      -webkit-transition-delay: 350ms;
+      -moz-transition-delay: 350ms;
+      -o-transition-delay: 350ms;
+      -ms-transition-delay: 350ms;
+      transition-delay: 350ms;
+      -webkit-transition-duration: 200ms;
+      -moz-transition-duration: 200ms;
+      -o-transition-duration: 200ms;
+      -ms-transition-duration: 200ms;
+      transition-duration: 200ms;
+      -webkit-transition-property: all;
+      -moz-transition-property: all;
+      -o-transition-property: all;
+      -ms-transition-property: all;
+      transition-property: all;
+      -webkit-transition-timing-function: easing;
+      -moz-transition-timing-function: easing;
+      -o-transition-timing-function: easing;
+      -ms-transition-timing-function: easing;
+      transition-timing-function: easing; }
+
+.third {
+  position: static;
+  width: 100%;
+  display: block; }
+  .third .third-intro {
+    color: white;
+    padding: 270px 0 200px 0;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 34px; }
+  .third .form {
+    width: 500px;
+    margin: 0 auto;
+    font-size: 20px; }
+    .third .form .fuck-spam {
+      display: none; }
+    .third .form div {
+      margin: 20px 0; }
+    .third .form input, .third .form textarea {
+      background: none;
+      border: 0;
+      width: 500px;
+      padding: 20px;
+      color: white; }
+      .third .form input:focus, .third .form textarea:focus {
+        outline: none; }
+    .third .form input {
+      border-bottom: 1px solid white; }
+    .third .form textarea {
+      border: 1px solid white;
+      height: 300px; }

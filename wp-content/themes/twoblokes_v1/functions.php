@@ -147,4 +147,68 @@
 		);
 	}
 
+	// Add new image type
+	add_action('after_setup_theme','blur_image_size');
+		function blur_image_size() {
+		add_image_size('blur-image', 1000, 1000, true);
+	}
+
+	add_filter('wp_generate_attachment_metadata','blur_filter');
+	function blur_filter($meta) {
+	    $file = wp_upload_dir();
+	    $file = trailingslashit($file['path']).$meta['sizes']['blur-image']['file'];
+	    list($orig_w, $orig_h, $orig_type) = @getimagesize($file);
+	    $image = wp_load_image($file);
+	    imagesavealpha($image, true);
+	  	// $gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
+			// imageconvolution($image, $gaussian, 66, 0);
+			imagefilter($image, IMG_FILTER_COLORIZE, 0, 0, 0, 90);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+	    switch ($orig_type) {
+	        case IMAGETYPE_GIF:
+	            imagegif( $image, $file );
+	            break;
+	        case IMAGETYPE_PNG:
+	            imagepng( $image, $file );
+	            break;
+	        case IMAGETYPE_JPEG:
+	            imagejpeg( $image, $file );
+	            break;
+	    }
+	    return $meta;
+	}
+
+
+
 ?>
